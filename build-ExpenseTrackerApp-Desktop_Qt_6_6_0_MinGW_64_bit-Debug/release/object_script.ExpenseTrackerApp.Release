@@ -1,0 +1,16 @@
+release/expensedialog.o
+release/main.o
+release/mainmenu.o
+release/mainwindow.o
+release/monthlyprefixdialog.o
+release/reportsdialog.o
+release/signupdialog.o
+release/transactionsdialog.o
+release/qrc_Resources.o
+release/moc_expensedialog.o
+release/moc_mainmenu.o
+release/moc_mainwindow.o
+release/moc_monthlyprefixdialog.o
+release/moc_reportsdialog.o
+release/moc_signupdialog.o
+release/moc_transactionsdialog.o

@@ -1,0 +1,8 @@
+Income,7800,Business,Cash,25-11-2023
+Expense,6300,Business,Cash,25-11-2023
+Income,8500,Business,Cash,25-11-2023
+Expense,1466,Business,Credit Card,03-12-2023
+Expense,2000,Fuel,Cash,01-06-2023
+Expense,13255,Education,Cash,03-12-2023
+Expense,23722,Food,Cash,04-10-2023
+Expense,80000,Fun,Cash,04-12-2022

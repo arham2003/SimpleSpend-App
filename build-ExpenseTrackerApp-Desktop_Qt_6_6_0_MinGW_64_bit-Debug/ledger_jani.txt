@@ -1,4 +1,0 @@
-Income,23466,Business,Credit Card,05-12-2023
-Expense,45000,Food,Cash,03-12-2023
-Income,7866,Fuel,Cheque,05-11-2023
-Expense,82000,Fun,Cash,05-12-2022

@@ -15,10 +15,11 @@ MainWindow::MainWindow(QWidget *parent)
     QString styleSheet = "QMainWindow { background-image: url(:/resources/images/enlarge_krasivo-20.png);}";
     this->setStyleSheet(styleSheet);
 
-    QPixmap pix(":/resources/images/AccLogin.png");
+    QPixmap pix(":/resources/images/accLogin (2).png");
     int w = ui->label_pic->width();
     int h = ui->label_pic->height();
-    ui->label_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+    ui->label_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio,Qt::SmoothTransformation));
+    ui->label_pic->setAlignment(Qt::AlignCenter);
 
     QString lineEditStyle = "QLineEdit { border: 2px solid black; border-radius: 5px; padding: 2px; font-weight: bold; }";
     ui->lineEdit_username->setStyleSheet(lineEditStyle);

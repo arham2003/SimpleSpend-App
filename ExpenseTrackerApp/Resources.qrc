@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/resources">
-        <file>images/AccLogin.png</file>
         <file>images/Expense.png</file>
         <file>images/income.png</file>
         <file>images/report-icon.png</file>
@@ -10,5 +9,7 @@
         <file>images/istock.jpg</file>
         <file>images/krasivo-20.png</file>
         <file>images/enlarge_krasivo-20.png</file>
+        <file>images/logo design.png</file>
+        <file>images/accLogin (2).png</file>
     </qresource>
 </RCC>

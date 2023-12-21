@@ -1,0 +1,4 @@
+Income,3100,Food,Cash,18-12-2023
+Expense,5000,Fuel,Cash,21-12-2023
+Expense,1222,Business,Cash,21-12-2023
+Income,8500,Education,Cheque,21-12-2023

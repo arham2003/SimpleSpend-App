@@ -6,13 +6,18 @@
 #include<QMessageBox>
 #include<QFile>
 #include<QTextStream>
+#include <QPropertyAnimation>
+#include <QSequentialAnimationGroup>
 using namespace std;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QString styleSheet = "QMainWindow { background-image: url(:/resources/images/enlarge_krasivo-20.png);}";
+    QIcon icon(":/resources/images/simpleSpend logo.png");
+    setWindowIcon(icon);
+
+    QString styleSheet = "MainWindow { background-image: url(:/resources/images/enlarge_krasivo-20.png);}";
     this->setStyleSheet(styleSheet);
 
     QPixmap pix(":/resources/images/accLogin (2).png");
@@ -63,7 +68,27 @@ void MainWindow::on_pushButton_Login_clicked()
             QMessageBox::information(this,"Login","Username and password is correct.");
             this->hide();
             mainMenu = new MainMenu(this);
+            mainMenu->setWindowOpacity(0.0);
+
+            // Show the new window
             mainMenu->show();
+
+            // Create a property animation for the opacity property
+            QPropertyAnimation* animation = new QPropertyAnimation(mainMenu, "windowOpacity");
+
+            // Set the duration of the animation in milliseconds
+            animation->setDuration(500);  // Adjust the duration as needed
+
+            // Set the target opacity (in this case, fully opaque)
+            animation->setEndValue(1.0);
+
+            // Use an easing curve for a smooth acceleration and deceleration effect
+            animation->setEasingCurve(QEasingCurve::InOutQuad);
+
+            // Start the animation
+            animation->start(QAbstractAnimation::DeleteWhenStopped);
+
+
             accFound = 1;
 
         }else{

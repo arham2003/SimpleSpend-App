@@ -66,6 +66,9 @@
      </item>
      <item>
       <widget class="QLineEdit" name="lineEdit_amount">
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(255, 255, 255);</string>
+       </property>
        <property name="placeholderText">
         <string>0.00</string>
        </property>

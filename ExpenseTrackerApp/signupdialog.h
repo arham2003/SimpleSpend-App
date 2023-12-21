@@ -1,6 +1,7 @@
 #ifndef SIGNUPDIALOG_H
 #define SIGNUPDIALOG_H
 
+#include "qlineedit.h"
 #include <QDialog>
 
 namespace Ui {
@@ -22,6 +23,8 @@ private slots:
 
 private:
     Ui::SignupDialog *ui;
+
+    void createToggleButton(QLineEdit *lineEdit, QPushButton *toggleButton);
 };
 
 #endif // SIGNUPDIALOG_H

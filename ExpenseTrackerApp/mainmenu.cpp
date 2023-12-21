@@ -16,7 +16,7 @@
 #include <QDialog>
 #include <QDate>
 #include "transactionsdialog.h"
-
+#include <QPropertyAnimation>
 using namespace std;
 
 MainMenu::MainMenu(QWidget *parent) :
@@ -31,14 +31,20 @@ MainMenu::MainMenu(QWidget *parent) :
     boldFont.setPointSize(10);
     setFont(boldFont);
 
-    QString styleSheet = "QMenuBar { background-color: silver;}";
+    QString styleSheet = "MainMenu { background-image: url(:/resources/images/finance black.png);}"
+                         "QMenuBar { background-color: silver;}";
     this->setStyleSheet(styleSheet);
 
+    ui->label_income->setAlignment(Qt::AlignCenter);
+    ui->label_expense->setAlignment(Qt::AlignCenter);
+    ui->label_Reports->setAlignment(Qt::AlignCenter);
+    ui->label_Transactions->setAlignment(Qt::AlignCenter);
     setWindowTitle("Main Menu");
     loadPixmap(":/resources/images/income.png", ui->label_income);
     loadPixmap(":/resources/images/Expense.png", ui->label_expense);
     loadPixmap(":/resources/images/report-icon.png", ui->label_Reports);
     loadPixmap(":/resources/images/transactions.png", ui->label_Transactions);
+
 
     currentUser = static_cast<MainWindow*>(parentWidget())->getCurrentUsername();
     mainFunc();
@@ -60,6 +66,7 @@ void MainMenu::loadPixmap(const QString &imagePath, QLabel *label)
     int w = label->width();
     int h = label->height();
     label->setPixmap(pix.scaled(w, h, Qt::KeepAspectRatio));
+     label->setAlignment(Qt::AlignCenter);
 }
 
 void MainMenu::on_pushButton_addExpense_clicked()
@@ -165,7 +172,18 @@ void MainMenu::on_actionLogout_triggered()
 {
     MainMenu::close();
     QWidget *parent = this->parentWidget();
+    parent->setWindowOpacity(0.0);
     parent->show();
+    QPropertyAnimation* animation = new QPropertyAnimation(parent, "windowOpacity");
+
+    // Set the duration of the animation in milliseconds
+    animation->setDuration(500);  // Adjust the duration as needed
+
+    // Set the target opacity (in this case, fully opaque)
+    animation->setEndValue(1.0);
+
+    // Start the animation
+    animation->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
 

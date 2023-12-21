@@ -17,7 +17,7 @@ ExpenseDialog::ExpenseDialog(const QString& username, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QString styleSheet = "QDialog { background-color: silver;}";
+    QString styleSheet = "ExpenseDialog { background-color: silver;}";
     this->setStyleSheet(styleSheet);
 
     setWindowTitle("Add Expense or Income");

@@ -9,12 +9,32 @@ SignupDialog::SignupDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowTitle("Create Your Account");
+
+    QIcon icon(":/resources/images/action-hide-password.png");
+    ui->pushButton_togglePass->setIcon(icon);
+    ui->pushButton_toggleCfmPass->setIcon(icon);
+
+    createToggleButton(ui->lineEdit_registerPass, ui->pushButton_togglePass);
+    createToggleButton(ui->lineEdit_CfmPass, ui->pushButton_toggleCfmPass);
 }
 
 SignupDialog::~SignupDialog()
 {
     delete ui;
 }
+
+void SignupDialog::createToggleButton(QLineEdit *lineEdit, QPushButton *toggleButton)
+{
+    // Set echo mode to password initially
+    lineEdit->setEchoMode(QLineEdit::Password);
+
+    // Connect the toggle button's clicked signal to the slot for toggling visibility
+    connect(toggleButton, &QPushButton::clicked, [lineEdit]() {
+        // Toggle the echo mode between Normal and Password
+        lineEdit->setEchoMode(lineEdit->echoMode() == QLineEdit::Normal ? QLineEdit::Password : QLineEdit::Normal);
+    });
+}
+
 
 void SignupDialog::on_pushButton_accCreate_clicked()
 {

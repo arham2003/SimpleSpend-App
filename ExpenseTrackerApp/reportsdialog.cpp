@@ -78,6 +78,9 @@ void ReportsDialog::createIncomeBarChart(QVBoxLayout *layout)
 
     incomeChart->addSeries(incomeSeries);
     incomeChart->setTitle("Report by Monthly Income");
+    QFont titleFont = incomeChart->titleFont();
+    titleFont.setBold(true);
+    incomeChart->setTitleFont(titleFont);
     incomeChart->setAnimationOptions(QChart::SeriesAnimations);
 
     QValueAxis *axisY = new QValueAxis();
@@ -111,6 +114,9 @@ void ReportsDialog::createExpenseBarChart(QVBoxLayout *layout)
 
     expenseChart->addSeries(expenseSeries);
     expenseChart->setTitle("Report by Monthly Expenses");
+    QFont titleFont = expenseChart->titleFont();
+    titleFont.setBold(true);
+    expenseChart->setTitleFont(titleFont);
     expenseChart->setAnimationOptions(QChart::SeriesAnimations);
 
     QValueAxis *axisY = new QValueAxis();
@@ -145,13 +151,16 @@ void ReportsDialog::createCategoryPieChart(QVBoxLayout *layout)
     loadAndAppendCategoryData(categorySeries);
     categoryChart->addSeries(categorySeries);
     categoryChart->setTitle("Report by Categories");
+    QFont titleFont = categoryChart->titleFont();
+    titleFont.setBold(true);
+    categoryChart->setTitleFont(titleFont);
     categoryChart->setAnimationOptions(QChart::SeriesAnimations);
 
     QChartView *categoryChartView = new QChartView(categoryChart);
     categoryChartView->setRenderHint(QPainter::Antialiasing);
     categoryChartView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    categoryChartView->setMinimumSize(500, 500);
+    categoryChartView->setMinimumSize(400, 500);
 
     layout->addWidget(categoryChartView);
 }
